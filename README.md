@@ -57,4 +57,13 @@ After the container is up, create the migrations with the following command:
 docker compose exec api flask db upgrade
 ```
 
-That's all you need 🎉! Now you are ready to use the Python Challenge!
+That's all you need 🎉!
+
+You can go at http://....
+
+**Login Credentials:**
+
+```
+email: admin@email.com
+password: 123Change@
+```
