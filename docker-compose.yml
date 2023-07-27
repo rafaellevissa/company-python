@@ -1,5 +1,9 @@
 version: "3.7"
 
+secrets:
+  company-python:
+    external: true
+
 services:
   api:
     image: rafaellevissa/company-python:latest
