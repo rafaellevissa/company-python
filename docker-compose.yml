@@ -14,23 +14,26 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_PORT: ${DB_DATABASE}
+    env_file:
+      - .env
   
   api:
-    build: ./
+    build: rafaellevi
     deploy:
       replicas: 3
       restart_policy:
         condition: on-failure
     environment:
-      - FLASK_ENV=development
+      - FLASK_ENV=production
       - FLASK_APP=server.py
     volumes:
       - ./:/app
     ports:
       - 5000:5000
     depends_on:
-      - db
-    links:
       - db
