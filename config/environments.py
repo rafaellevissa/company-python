@@ -1,9 +1,11 @@
 import os
 from dotenv import load_dotenv
 
-dotenv_path = os.path.realpath(os.getcwd() + "/.env")
+dotenv_paths = ['/run/secrets/company-python', os.path.realpath(os.getcwd() + "/.env")]
 
-load_dotenv(dotenv_path)
+for dotenv_path in dotenv_paths:
+    if os.path.exists(dotenv_path):
+        load_dotenv(dotenv_path)
 
 appkey = os.getenv("APP_KEY")
 
