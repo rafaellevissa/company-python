@@ -11,7 +11,7 @@ auth_controller = AuthController()
 
 @router.route('/auth/login', methods=['POST'])
 def login():
-    return auth_controller.login(request.get_json())
+    return auth_controller.post(request.get_json())
 
 @router.route('/company', methods=['GET'])
 @jwt_required
