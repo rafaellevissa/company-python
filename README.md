@@ -54,7 +54,7 @@ docker compose up -d
 After the container is up, create the migrations with the following command:
 
 ```
-docker compose exec api flask db upgrade
+docker compose exec api alembic upgrade head
 ```
 
 That's all you need 🎉!
